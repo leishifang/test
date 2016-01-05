@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/layout_item_bg"
+    android:orientation="horizontal"
+    android:padding="@dimen/space_8">
+
+    <com.example.giggle.oschina2.ui.CircleImageView
+        android:id="@+id/iv_portrait"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:src="@mipmap/ic_launcher" />
+
+    <TextView
+        android:textSize="@dimen/text_size_15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/space_10"
+        android:layout_toRightOf="@id/iv_portrait"
+        android:text="authorName" />
+
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:text="time" />
+</RelativeLayout>
