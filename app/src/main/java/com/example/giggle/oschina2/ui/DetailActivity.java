@@ -38,7 +38,7 @@ public class DetailActivity extends AppCompatActivity implements OnSendClickList
 
     public ToolbarFragment mToolbarFragment = new ToolbarFragment();
     public KJEmojiFragment mKJEmojiFragment = new KJEmojiFragment();
-
+ 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
