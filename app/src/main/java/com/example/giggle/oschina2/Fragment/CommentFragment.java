@@ -24,7 +24,7 @@ public class CommentFragment extends BaseListFragment<Comment> {
 
     @Override
     protected int getLayoutId() {
-        return R.layout.fragment_listview_pulltorefresh;
+        return   R.layout.fragment_listview_pulltorefresh;
     }
 
     @Override
