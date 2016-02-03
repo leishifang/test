@@ -56,7 +56,6 @@ public class NewsAdapter extends BaseListAdapter<News> {
         @Nullable
         @Bind(R.id.list_item_source_tv)
 
-
         TextView mListItemSourceTv;
         @Nullable
         @Bind(R.id.list_item_time_tv)
