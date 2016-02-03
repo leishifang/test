@@ -10,20 +10,38 @@
         android:id="@+id/iv_portrait"
         android:layout_width="28dp"
         android:layout_height="28dp"
+        android:layout_marginEnd="@dimen/space_10"
         android:src="@mipmap/ic_launcher" />
 
     <TextView
-        android:textSize="@dimen/text_size_15"
+        android:id="@+id/tv_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/space_10"
         android:layout_toRightOf="@id/iv_portrait"
-        android:text="authorName22" />
+        android:text="authorName22"
+        android:textSize="@dimen/text_size_15" />
 
     <TextView
-
+        android:id="@+id/tv_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:text="time" />
+
+    <com.example.giggle.oschina2.widget.FloorView
+        android:layout_width="match_parent"
+        android:id="@+id/floorview"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/bg_comment"
+        android:layout_below="@+id/iv_portrait"
+        android:layout_toEndOf="@id/iv_portrait" />
+
+    <TextView
+        android:id="@+id/tv_comment"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/floorview"
+        android:layout_toEndOf="@id/iv_portrait"
+        android:layout_height="wrap_content"
+        android:text="我的回复在这里" />
 </RelativeLayout>

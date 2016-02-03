@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.ScrollView;
 
-//// TODO: 2015-10-26
+// TODO: 2015-10-26
 
 /**
  * Created by Administrator on 2015-10-26.

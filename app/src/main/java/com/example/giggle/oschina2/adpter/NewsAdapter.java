@@ -1,5 +1,6 @@
 package com.example.giggle.oschina2.adpter;
 
+import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,25 +35,33 @@ public class NewsAdapter extends BaseListAdapter<News> {
         viewHolder.mListItemDescriptionTv.setText((getItem(position)).getBody());
         viewHolder.mListItemSourceTv.setText((getItem(position)).getAuthor());
         viewHolder.mListItemTimeTv.setText((getItem(position)).getPubDate());
-        if (!StringUtils.isToday(getItem(position).getPubDate())){
+        if (!StringUtils.isToday(getItem(position).getPubDate())) {
             viewHolder.mListItemTipIv.setVisibility(View.GONE);
-        }else {
+        } else {
             viewHolder.mListItemSourceTv.setVisibility(View.VISIBLE);
         }
         return convertView;
     }
 
     static class ViewHolder {
+        @Nullable
         @Bind(R.id.list_item_tip_iv)
         ImageView mListItemTipIv;
+        @Nullable
         @Bind(R.id.list_item_title_tv)
         TextView mListItemTitleTv;
+        @Nullable
         @Bind(R.id.list_item_description_tv)
         TextView mListItemDescriptionTv;
+        @Nullable
         @Bind(R.id.list_item_source_tv)
+
+
         TextView mListItemSourceTv;
+        @Nullable
         @Bind(R.id.list_item_time_tv)
         TextView mListItemTimeTv;
+        @Nullable
         @Bind(R.id.list_item_comment_count_tv)
         TextView mListItemCommentCountTv;
 

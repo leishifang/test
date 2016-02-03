@@ -2,7 +2,6 @@ package com.example.giggle.oschina2.Fragment;
 
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Toast;
 
 import com.example.giggle.oschina2.adpter.NewsAdapter;
 import com.example.giggle.oschina2.api.OSChinaAPI;
