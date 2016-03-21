@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/layout_item_bg"
+    tools:context=".ui.LoginActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/ll_option_root"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@mipmap/user_center_bg">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_horizontal"
+                    android:padding="@dimen/space_20">
+
+                    <com.example.giggle.oschina2.ui.CircleImageView
+                        android:id="@+id/iv_portrait"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@mipmap/widget_dface" />
+
+                    <TextView
+                        android:layout_marginTop="@dimen/space_10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/text_size_16"
+                        android:textColor="@color/white"
+                        android:text="@string/my_information_unlogin_tips"
+                        android:layout_below="@+id/iv_portrait" />
+                </RelativeLayout>
+            </FrameLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_option_message"
+                style="@style/me_option_item">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/icon_my_message" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/tv_message"
+                        style="@style/list_item_text_title"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/space_15"
+                        android:text="@string/message" />
+
+                    <TextView
+                        android:id="@+id/tv_message_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/tv_message"
+                        android:text="19" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <View style="@style/h_line" />
+
+            <LinearLayout
+                android:id="@+id/ll_option_blog"
+                style="@style/me_option_item">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/icon_my_blog" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/tv_blog"
+                        style="@style/list_item_text_title"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/space_15"
+                        android:text="@string/blog" />
+
+                    <TextView
+                        android:id="@+id/tv_blog_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/tv_blog"
+                        android:text="19" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <View style="@style/h_line" />
+
+            <LinearLayout
+                android:id="@+id/ll_option_note"
+                style="@style/me_option_item">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/icon_my_note" />
+
+                <TextView
+                    android:id="@+id/tv_note"
+                    style="@style/list_item_text_title"
+                    android:layout_marginStart="@dimen/space_15"
+                    android:text="@string/note" />
+
+            </LinearLayout>
+
+            <View style="@style/h_line" />
+
+            <LinearLayout
+                android:id="@+id/ll_option_team"
+                style="@style/me_option_item">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/icon_my_team" />
+
+                <TextView
+                    android:id="@+id/tv_team"
+                    style="@style/list_item_text_title"
+                    android:layout_marginStart="@dimen/space_15"
+                    android:text="@string/team" />
+
+            </LinearLayout>
+
+            <View style="@style/h_line" />
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>
