@@ -73,4 +73,15 @@ public class Notice implements Serializable {
     public void setNewLikeCount(int newLikeCount) {
         this.newLikeCount = newLikeCount;
     }
+
+    @Override
+    public String toString() {
+        return "Notice{" +
+                "atmeCount=" + atmeCount +
+                ", msgCount=" + msgCount +
+                ", reviewCount=" + reviewCount +
+                ", newFansCount=" + newFansCount +
+                ", newLikeCount=" + newLikeCount +
+                '}';
+    }
 }

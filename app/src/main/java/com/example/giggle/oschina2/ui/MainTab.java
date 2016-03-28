@@ -1,5 +1,6 @@
 package com.example.giggle.oschina2.ui;
 
+import com.example.giggle.oschina2.Fragment.UserInfoFragment;
 import com.example.giggle.oschina2.R;
 import com.example.giggle.oschina2.viewpagerfragment.NewsViewPagerFragment;
 
@@ -8,7 +9,7 @@ public enum MainTab {
     TWEET(1, R.string.main_tab_name_tweet, R.drawable.tab_icon_news, NewsViewPagerFragment.class),
     QUICK(2, R.string.main_tab_name_quick, R.drawable.tab_icon_news, NewsViewPagerFragment.class),
     EXPLORE(3, R.string.main_tab_name_explore, R.drawable.tab_icon_news, NewsViewPagerFragment.class),
-    ME(4, R.string.main_tab_name_my, R.drawable.tab_icon_news, NewsViewPagerFragment.class);
+    ME(4, R.string.main_tab_name_my, R.drawable.tab_icon_news, UserInfoFragment.class);
 
     private int id;
     private int nameId;

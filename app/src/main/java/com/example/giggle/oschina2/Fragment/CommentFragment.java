@@ -8,7 +8,6 @@ import com.example.giggle.oschina2.base.BaseListFragment;
 import com.example.giggle.oschina2.bean.Comment;
 import com.example.giggle.oschina2.bean.CommentList;
 import com.example.giggle.oschina2.bean.EntityList;
-import com.example.giggle.oschina2.util.TLog;
 import com.example.giggle.oschina2.util.XmlUtils;
 
 import java.io.InputStream;
@@ -24,27 +23,12 @@ public class CommentFragment extends BaseListFragment<Comment> {
 
     @Override
     protected int getLayoutId() {
-        return   R.layout.fragment_listview_pulltorefresh;
+        return R.layout.fragment_listview_pulltorefresh;
     }
 
     @Override
     protected EntityList<Comment> parserList(InputStream is) {
-        /*
-        BufferedReader reader = new BufferedReader(new InputStreamReader(is));
-        StringBuffer buffer = new StringBuffer();
-        String line = "";
-        try {
-            while ((line = reader.readLine()) != null) {
-                buffer.append(line);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        TLog.log("CommentFragment data", buffer.toString());
-        */
-
         CommentList commentList = XmlUtils.toBean(CommentList.class, is);
-//        TLog.log("CommentFragment",commentList.getAllCount()+"");
         return commentList;
     }
 

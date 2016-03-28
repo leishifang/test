@@ -1,18 +1,16 @@
 package com.example.giggle.oschina2;
 
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
+import android.content.Context;
 
 import com.example.giggle.oschina2.api.ApiHttpClient;
 import com.example.giggle.oschina2.base.BaseApplication;
-import com.example.giggle.oschina2.util.StringUtils;
+import com.example.giggle.oschina2.bean.User;
 import com.loopj.android.http.AsyncHttpClient;
-import com.loopj.android.http.PersistentCookieStore;
 
-import org.kymjs.kjframe.bitmap.BitmapConfig;
-
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.util.Properties;
-import java.util.UUID;
 
 @SuppressWarnings({"unused", "JavaDoc"})
 
@@ -57,69 +55,46 @@ public class AppContext extends BaseApplication {
 
         // TODO: 2015-11-27 初始化Log控制器
 
-        // Bitmap缓存地址
-//        BitmapConfig.CACHEPATH = "OSChina2/imagecache";
     }
-//
-//    public boolean containsProperty(String key) {
-//        Properties properties = getProperties();
-//        return properties.containsKey(key);
-//    }
-//
-//    public Properties getProperties() {
-//        return AppConfig.getAppConfig(this).get();
-//    }
-//
-//    public void setProperty(String key, String value) {
-//        AppConfig.getAppConfig(this).set(key, value);
-//    }
-//
-//    public void setProperties(Properties properties) {
-//        AppConfig.getAppConfig(this).set(properties);
-//    }
-//
-//    /**
-//     * 获取cookie时传AppConfig.CONF_COOKIE
-//     *
-//     * @param key
-//     * @return
-//     */
-//    public String getProperty(String key) {
-//        return AppConfig.getAppConfig(this).get(key);
-//    }
-//
-//    public void removeProperty(String... key) {
-//        AppConfig.getAppConfig(this).remove(key);
-//    }
-//
-//    /**
-//     * 获取应用程序唯一标识
-//     *
-//     * @return
-//     */
-//    public String getAppId() {
-//        String UID = getProperty(AppConfig.CONF_APP_UNIQUEID);
-//        if (StringUtils.isEmpty(UID)) {
-//            UID = UUID.randomUUID().toString();
-//            setProperty(AppConfig.CONF_APP_UNIQUEID, UID);
-//        }
-//        return UID;
-//    }
-//
-//    public PackageInfo getPackageInfo() {
-//        PackageInfo info = null;
-//        try {
-//            info = getPackageManager().getPackageInfo(getPackageName(), 0);
-//        } catch (PackageManager.NameNotFoundException e) {
-//            e.printStackTrace();
-//        }
-//        if (info == null) {
-//            info = new PackageInfo();
-//        }
-//        return info;
-//    }
 
     // TODO: 2015-10-29 保存登陆信息
+    public void saveUserInfo(User user) {
+        FileOutputStream fileOutputStream;
+        try {
+            File file = new File("config");
+            fileOutputStream = this.openFileOutput("config", Context.MODE_PRIVATE);
+
+            Properties properties = new Properties();
+            properties.put("user.id", user.getUid());
+            properties.put("user.name", user.getName());
+            properties.put("user.account", user.getAccount());
+            properties.put("user.pwd", user.getPassword());
+            properties.put("user.face", user.getPortrait());
+
+            Properties preProperties = getPreProperties();
+            preProperties.putAll(properties);
+
+            preProperties.store(fileOutputStream, null);
+            fileOutputStream.flush();
+            fileOutputStream.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public Properties getPreProperties() {
+
+        Properties preProperties = new Properties();
+        try {
+            FileInputStream fileInputStream = this.openFileInput("config");
+            preProperties.load(fileInputStream);
+            fileInputStream.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return preProperties;
+    }
     // TODO: 2015-10-29 更新用户信息
     // TODO: 2015-10-29 获取用户登陆信息
     // TODO: 2015-10-29 清除用户登陆信息
@@ -129,46 +104,4 @@ public class AppContext extends BaseApplication {
     // TODO: 2015-10-29  getNoteDraft
     // TODO: 2015-10-29  setNoteDraft
     // TODO: 2015-10-29 清除APP缓存
-
-//    /**
-//     * 清除cookie
-//     */
-//    public void cleanCookie() {
-//        removeProperty(AppConfig.CONF_COOKIE);
-//    }
-//
-//    public static void setLoadImage(boolean flag) {
-//        set(AppConfig.KEY_LOAD_IMAGE, flag);
-//    }
-//
-//    /**
-//     * 判断当前版本是否兼容目标版本的方法
-//     *
-//     * @param VersionCode
-//     * @return
-//     */
-//    public static boolean isMethodsCompat(int VersionCode) {
-//        int currentVersion = android.os.Build.VERSION.SDK_INT;
-//        return currentVersion >= VersionCode;
-//    }
-//
-//    public static boolean isFirstStart() {
-//        return getPreferences().getBoolean(AppConfig.KEY_FRITST_START, true);
-//    }
-//
-//    public static void setFirstStart(boolean frist) {
-//        set(AppConfig.KEY_FRITST_START, frist);
-//    }
-//
-//    /**
-//     * @return true:当前保存的是夜间模式 false:当前保存的是白天模式
-//     */
-//    public static boolean getNightModeSwitch() {
-//        return getPreferences().getBoolean(AppConfig.KEY_NIGHT_MODE_SWITCH, false);
-//    }
-//
-//    // 设置夜间模式
-//    public static void setNightModeSwitch(boolean on) {
-//        set(AppConfig.KEY_NIGHT_MODE_SWITCH, on);
-//    }
 }

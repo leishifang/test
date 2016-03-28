@@ -1,149 +1,92 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/layout_item_bg"
-    tools:context=".ui.LoginActivity">
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.giggle.oschina2.ui.LoginActivity">
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <LinearLayout
-            android:id="@+id/ll_option_root"
+        <AutoCompleteTextView
+            android:id="@+id/tv_user_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:hint="@string/login_user_name_hint"
+            android:inputType="textEmailAddress"
+            android:maxLines="1"
+            android:singleLine="true" />
 
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@mipmap/user_center_bg">
+        <EditText
+            android:id="@+id/tv_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/login_password_hint"
+            android:inputType="textPassword"
+            android:maxLines="1"
+            android:singleLine="true" />
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center_horizontal"
-                    android:padding="@dimen/space_20">
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/btn_login_selector"
+            android:text="@string/login"
+            android:textSize="@dimen/text_size_20"
+            android:textStyle="bold" />
 
-                    <com.example.giggle.oschina2.ui.CircleImageView
-                        android:id="@+id/iv_portrait"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:src="@mipmap/widget_dface" />
+    </LinearLayout>
 
-                    <TextView
-                        android:layout_marginTop="@dimen/space_10"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="@dimen/text_size_16"
-                        android:textColor="@color/white"
-                        android:text="@string/my_information_unlogin_tips"
-                        android:layout_below="@+id/iv_portrait" />
-                </RelativeLayout>
-            </FrameLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:layout_marginTop="@dimen/space_30"
+        android:orientation="vertical">
 
-            <LinearLayout
-                android:id="@+id/ll_option_message"
-                style="@style/me_option_item">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/use_other_app_account"
+            android:textSize="@dimen/text_size_14" />
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@mipmap/icon_my_message" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_10"
+            android:orientation="horizontal">
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/iv_qq"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/icon_qq_selector"
+                android:clickable="true" />
 
-                    <TextView
-                        android:id="@+id/tv_message"
-                        style="@style/list_item_text_title"
-                        android:layout_centerVertical="true"
-                        android:layout_marginStart="@dimen/space_15"
-                        android:text="@string/message" />
+            <ImageView
+                android:id="@+id/iv_wechat"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="@dimen/space_10"
+                android:background="@drawable/icon_wechat_selector"
+                android:clickable="true" />
 
-                    <TextView
-                        android:id="@+id/tv_message_count"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_toEndOf="@id/tv_message"
-                        android:text="19" />
-                </RelativeLayout>
-            </LinearLayout>
-
-            <View style="@style/h_line" />
-
-            <LinearLayout
-                android:id="@+id/ll_option_blog"
-                style="@style/me_option_item">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@mipmap/icon_my_blog" />
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <TextView
-                        android:id="@+id/tv_blog"
-                        style="@style/list_item_text_title"
-                        android:layout_centerVertical="true"
-                        android:layout_marginStart="@dimen/space_15"
-                        android:text="@string/blog" />
-
-                    <TextView
-                        android:id="@+id/tv_blog_count"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_toEndOf="@id/tv_blog"
-                        android:text="19" />
-                </RelativeLayout>
-            </LinearLayout>
-
-            <View style="@style/h_line" />
-
-            <LinearLayout
-                android:id="@+id/ll_option_note"
-                style="@style/me_option_item">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@mipmap/icon_my_note" />
-
-                <TextView
-                    android:id="@+id/tv_note"
-                    style="@style/list_item_text_title"
-                    android:layout_marginStart="@dimen/space_15"
-                    android:text="@string/note" />
-
-            </LinearLayout>
-
-            <View style="@style/h_line" />
-
-            <LinearLayout
-                android:id="@+id/ll_option_team"
-                style="@style/me_option_item">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@mipmap/icon_my_team" />
-
-                <TextView
-                    android:id="@+id/tv_team"
-                    style="@style/list_item_text_title"
-                    android:layout_marginStart="@dimen/space_15"
-                    android:text="@string/team" />
-
-            </LinearLayout>
-
-            <View style="@style/h_line" />
-
+            <ImageView
+                android:id="@+id/iv_sina"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="@dimen/space_10"
+                android:background="@drawable/icon_sina_selector"
+                android:clickable="true" />
         </LinearLayout>
-    </ScrollView>
-</RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

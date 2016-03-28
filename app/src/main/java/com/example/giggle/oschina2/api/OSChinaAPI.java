@@ -1,11 +1,11 @@
 package com.example.giggle.oschina2.api;
 
+import android.os.Bundle;
+
 import com.example.giggle.oschina2.AppContext;
 import com.example.giggle.oschina2.bean.NewsList;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
-
-import org.kymjs.kjframe.http.HttpParams;
 
 /**
  * Created by Administrator on 2015-10-24.
@@ -50,13 +50,20 @@ public class OSChinaAPI {
         ApiHttpClient.get("action/api/news_list", params, httpResponseHandler);
     }
 
-    public static void getCommentList(int catalog,int id,int page,AsyncHttpResponseHandler handler){
+    public static void getCommentList(int catalog, int id, int page, AsyncHttpResponseHandler handler) {
         RequestParams params = new RequestParams();
         params.put("catalog", catalog);
         params.put("id", id);
         params.put("pageIndex", page);
         params.put("pageSize", AppContext.PAGE_SIZE);
         params.put("clientType", "android");
-        ApiHttpClient.get("action/api/comment_list",params,handler);
+        ApiHttpClient.get("action/api/comment_list", params, handler);
+    }
+
+    public static void login(Bundle bundle, AsyncHttpResponseHandler handler) {
+        RequestParams params = new RequestParams();
+        params.put("username", bundle.getString("username"));
+        params.put("pwd", bundle.getString("pwd"));
+        ApiHttpClient.post("action/api/login_validate", params, handler);
     }
 }

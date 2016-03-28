@@ -19,8 +19,6 @@ import butterknife.ButterKnife;
 @SuppressWarnings({"unused", "JavaDoc"})
 public class MainActivity extends ActionBarActivity implements View.OnTouchListener {
 
-    @Bind(R.id.drawer_layout)
-    DrawerLayout mDrawerLayout;
     @Bind(android.R.id.tabhost)
     MyFragmentTabHost mTabhost;
 
@@ -31,11 +29,11 @@ public class MainActivity extends ActionBarActivity implements View.OnTouchListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
- //       if (AppContext.getNightModeSwitch()) {
+        //       if (AppContext.getNightModeSwitch()) {
 //            setTheme(R.style.AppBaseTheme_Night);
- //       } else {
+        //       } else {
 //            setTheme(R.style.AppBaseTheme_light);
-  //      }
+        //      }
 
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
@@ -48,7 +46,6 @@ public class MainActivity extends ActionBarActivity implements View.OnTouchListe
                 findFragmentById(R.id.navigation_drawer);
         mNavigationDrawerFragment.setUp(R.id.navigation_drawer, (DrawerLayout) findViewById(R.id
                 .drawer_layout));
-
         initTab();
     }
 
